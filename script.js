@@ -1,10 +1,7 @@
-function addTask() {
-    const input = document.getElementById('taskInput');
-    const taskText = input.value.trim();
-
-    if (taskText === '') {
-        alert('Please enter a task!');
-        return;
+function deleteTask(id) {
+    if (confirm('Are you sure you want to delete this task?')) {
+        tasks = tasks.filter(task => task.id !== id);
+        saveTasks();
+        renderTasks();
     }
-    // ... baqi code
 }

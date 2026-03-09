@@ -1,8 +1,11 @@
-function saveTasks() {
-    try {
-        localStorage.setItem('tasks', JSON.stringify(tasks));
-    } catch (error) {
-        console.error('Storage error:', error);
-        alert('Storage full! Delete some tasks.');
-    }
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
 }
+
+// renderTasks mein use karein:
+li.innerHTML = `
+    <div class="task-text">${escapeHtml(task.text)}</div>
+    ...
+`;

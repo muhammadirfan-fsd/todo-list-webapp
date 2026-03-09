@@ -1,7 +1,8 @@
-function deleteTask(id) {
-    if (confirm('Are you sure you want to delete this task?')) {
-        tasks = tasks.filter(task => task.id !== id);
-        saveTasks();
-        renderTasks();
+function saveTasks() {
+    try {
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    } catch (error) {
+        console.error('Storage error:', error);
+        alert('Storage full! Delete some tasks.');
     }
 }
